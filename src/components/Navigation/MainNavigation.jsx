@@ -1,30 +1,51 @@
 import React, { Component } from "react";
-import { connect } from "react-redux";
 import { Link, withRouter } from "react-router-dom";
+import { connect } from "react-redux";
 import mainMenu from "../../conf/menu";
-
-import "../../style/css/nav.css";
+import colorThemes from "../../conf/colorThemes";
+import { changeColorTheme } from "../../redux/actions";
+import Select from "../../components/Select";
 
 class MainNavigation extends Component {
+  changeStyle = (nameTheme) => {
+    this.props.changeColorTheme(nameTheme);
+    //document.getElementsByTagName("link")[0].href = `/css/${nameTheme}.css`;
+  };
   render() {
-    const { pathname } = this.props.location;
+    const {
+      location: { pathname },
+      activeColorTheme
+    } = this.props;
     return (
-      <div className="navigation">
-        {mainMenu.map(({ index, name, href }) => {
-          const active = pathname === href ? "nav-tabs--active" : "";
-          return (
-            <Link
-              to={href}
-              key={index}
-              className={`main-navigation__nav-tabs ${active}`}
-            >
-              {name}
-            </Link>
-          );
-        })}
-      </div>
+      <>
+        <div className="navigation">
+          <div className="main-navigation">
+            {mainMenu.map(({ index, name, href }) => {
+              const active = pathname === href ? "--active" : "";
+              return (
+                <Link to={href} key={index} className={`nav-tabs${active}`}>
+                  {name}
+                </Link>
+              );
+            })}
+          </div>
+          {pathname === "/main" ? (
+            <Select
+              name="Styles"
+              tabs={colorThemes}
+              active={activeColorTheme}
+              functionForTabs={this.changeStyle}
+            />
+          ) : (
+            ""
+          )}
+        </div>
+      </>
     );
   }
 }
 
-export default withRouter(MainNavigation);
+const mapStateToProps = state => ({
+  activeColorTheme: state.main.activeColorTheme
+});
+export default withRouter(connect(mapStateToProps, {changeColorTheme})(MainNavigation));

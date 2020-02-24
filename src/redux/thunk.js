@@ -1,13 +1,19 @@
 import {
-getPictures
-} from './actions';
+  getCards,
+  getCardsSuccess,
+  getCardsError
+} from "./actions";
 
-const fetchPictures = (dispatch, url) => {
-    dispatch(getPictures());
-    return fetch(url)
-    .then(res=>res.json())
-    .then(
-        data => dispatch(),
-        error => dispatch()
-    )
-}
+export const fetchCards = () => {
+  return dispatch => {
+    dispatch(getCards());
+    fetch("/cards")
+      .then(res => res.json())
+      .then(data => {
+        dispatch(getCardsSuccess(data));
+      })
+      .catch(error => {
+        dispatch(getCardsError(error.message));
+      });
+  };
+};

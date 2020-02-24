@@ -1,0 +1,59 @@
+{
+  "main": {
+    "header": "V Kalinina V",
+    "images": {
+      "left": {
+        "url": "/images/main/main/left.jpeg",
+        "name": "Viktoriya Kalinina photo"
+      },
+      "right": {
+        "url": "/images/main/main/right.jpeg",
+        "name": "Viktoriya Kalinina photo"
+      },
+      "center": {
+        "url": "/images/main/main/center.jpeg",
+        "name": "Viktoriya Kalinina photo"
+      },
+      "top": {
+        "url": "/images/main/main/top.jpeg",
+        "name": "Viktoriya Kalinina photo"
+      }
+    },
+    "text": "Привет! Я Вика!",
+    "options": "main"
+  },
+  "common": [
+    {
+      "header": "что люблю",
+      "image": {
+        "url": "images/main/common/common1.jpeg"
+      },
+      "text": "....",
+      "options": "common"
+    },
+    {
+      "header": "кого люблю",
+      "image": {
+        "url": "images/main/common/common2.jpeg"
+      },
+      "text": "....",
+      "options": "common"
+    },
+    {
+      "header": "к чему стремлюсь",
+      "image": {
+        "url": "images/main/common/common3.jpeg"
+      },
+      "text": "....",
+      "options": "common"
+    },
+    {
+      "header": "чем занимаюсь",
+      "image": {
+        "url": "images/main/common/common4.jpeg"
+      },
+      "text": "....",
+      "options": "common"
+    }
+  ]
+}

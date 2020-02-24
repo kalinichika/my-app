@@ -1,6 +1,5 @@
 import React, { Component } from "react";
-import { Route, Switch } from "react-router-dom";
-import { connect } from "react-redux";
+import { Route, Switch, Redirect } from "react-router-dom";
 import Main from "../../containers/pages/Main";
 import About from "../../containers/pages/About";
 import Photo from "../../containers/pages/Photo";
@@ -14,6 +13,7 @@ class MainContent extends Component {
         <Route path="/about" component={About} />
         <Route path="/photo" component={Photo} />
         <Route path="/video" component={Video} />
+        <Redirect from="*" to="/main" />
       </Switch>
     </div>
   );
@@ -23,6 +23,4 @@ class MainContent extends Component {
   }
 }
 
-const mapStateToProps = state => state;
-
-export default connect(mapStateToProps)(MainContent);
+export default MainContent;

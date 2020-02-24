@@ -1,1 +1,5 @@
-export const GET_IMAGES = "GET_IMAGES";
+export const GET_CARDS = "GET_CARDS";
+export const GET_CARDS_SUCCESS = "GET_CARDS_SUCCESS";
+export const GET_CARDS_FAILED = "GET_CARDS_FAILED";
+export const MOVE_MOUSE = "MOVE_MOUSE";
+export const CHANGE_COLOR_THEME = "CHANGE_COLOR_THEME";

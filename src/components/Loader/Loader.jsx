@@ -1,9 +1,9 @@
 import React from "react";
-import "../../style/css/loader.css";
+import "./loader.css";
 
 export default function Loader() {
   return (
-    <div>
+    <div className="loading-container">
       <div className="loadingio">
         <div className="ldio">
           <div></div>

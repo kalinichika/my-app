@@ -1,0 +1,27 @@
+@use 'base';
+
+%image-container {
+  width: 100%;
+  height: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: $third-color;
+}
+%image {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+img {
+  @extend %image;
+}
+img.circle {
+  @extend %image;
+  border-radius: 50% 50%;
+}
+.image-container {
+  @extend %image-container;
+}
+.card-box--main .image-container{
+  transition: $transitision-simple;
+}

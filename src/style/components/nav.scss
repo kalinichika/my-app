@@ -1,0 +1,56 @@
+@use "base";
+
+.navigation {
+  width: 100%;
+  display: inline-flex;
+  height: 70px;
+  max-height: 70px;
+  justify-content: center;
+  top: 0px;
+  position: sticky;
+  background-color: $background-color;
+  box-shadow: $shadow-material;
+}
+%nav-tabs {
+  min-width: 100px;
+  height: 30px;
+  padding: 12px;
+  margin: 8px 4px;
+  font-size: $font-size-middle;
+  color: $secondary-text-color;
+  text-decoration: none;
+  text-align: center;
+  background-color: $secondary-color;
+  transition: $transitision-simple;
+}
+.main-navigation__nav-tabs {
+  @extend %nav-tabs;
+  position: relative;
+}
+.nav-tabs--right {
+  position: absolute;
+  right: 24px;
+  background-color: $primary-color;
+}
+.main-navigation__nav-tabs:hover {
+  box-shadow: $shadow-plane2;
+  transition: $transitision-simple;
+}
+.main-navigation__nav-tabs:focus,
+.nav-tabs--active {
+  background-color: $third-color;
+  box-shadow: 0px 1px 6px $primary-variant-color;
+}
+
+%select-container {
+  position: absolute;
+}
+.select-container--right {
+  @extend %select-container;
+  right: 24px;
+  top: 70px;
+  width: 120px;
+}
+.select-tabs {
+  @extend %nav-tabs;
+}

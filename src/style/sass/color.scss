@@ -1,0 +1,205 @@
+$primary-color: #b742df;
+$primary-variant-color: #5921db;
+$secondary-color: #04d6fc;
+$secondary-variant-color: #3f3a4b;
+$third-color: #ff7bf8;
+
+$background-color: #61c0f781;
+$error-color: #f44336;
+
+$primary-text-color: black;
+$secondary-text-color: white;
+$third-text-color: #8e8cba;
+$shadow-simple: 0px 1px 6px $secondary-variant-color;
+$shadow-material: 0 8px 22px rgba(0, 0, 0, 0.25), 0 4px 8px rgba(0, 0, 0, 0.22);
+
+$shadow-plane1: 0 0 0 2px white, 0 0 0 4px $secondary-color;
+$shadow-plane2: 200px 0 0 0 $third-color inset;
+$shadow-plane3: 0 0 0 2px $secondary-color inset, 0 0 0 4px white inset;
+
+$font-stack: "Cinzel", "Cormorant", serif;
+$font-size-small: 16px;
+$font-size-normal: 22px;
+$font-size-middle: 28px;
+$font-size-large: 42px;
+
+$transitision-simple: all 0.6 ease-in-out;
+
+body {
+  font-family: $font-stack;
+  font-size: $font-size-normal;
+  background-color: $background-color;
+  width: 100vw;
+  height: 100vh;
+  margin: 0px;
+}
+#root,
+.App {
+  width: initial;
+  height: inherit;
+}
+.page {
+  margin: 0px;
+  margin-top: 16px;
+  width: 100%;
+  height: calc(100vh - 70px - 16px);
+}
+.page-main {
+  width: 100%;
+  height: 100%;
+}
+.hidden {
+  opacity: 0;
+}
+
+.card-box {
+  background-color: $primary-variant-color;
+  padding: 2% 6%;
+  text-align: center;
+  .card-box__header {
+    height: 50px;
+    margin-top: 8px;
+    margin-bottom: 0px;
+    font-size: $font-size-middle;
+  }
+  .card-box__image {
+    height: calc(100% - 50px - 50px);
+  }
+  .card-box__text {
+    font-size: $font-size-normal;
+  }
+  box-shadow: $shadow-material;
+}
+.card-box:hover {
+  box-shadow: $shadow-simple;
+}
+.card-box--main {
+  .card-box__header {
+    height: 10%;
+    font-size: $font-size-large;
+    line-height: $font-size-large + 8px;
+  }
+  .card-box__image {
+    height: 80%;
+    width: 90%;
+  }
+}
+
+
+.grid-container {
+  width: 75%;
+  height: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  display: grid;
+  justify-content: space-evenly;
+  grid-template-columns: 27% 46% 27%;
+  grid-template-rows: 49% 49%;
+  grid-template-areas:
+    "item0 main item2"
+    "item1 main item3";
+  .grid-item {
+    margin: 24px;
+  }
+  .grid-item--main {
+    grid-area: main;
+    margin: 4px;
+  }
+  .grid-item--0 {
+    grid-area: item0;
+  }
+  .grid-item--1 {
+    grid-area: item1;
+  }
+  .grid-item--2 {
+    grid-area: item2;
+  }
+  .grid-item--3 {
+    grid-area: item3;
+  }
+}
+
+
+
+
+%image-container {
+  width: 100%;
+  height: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: $third-color;
+}
+%image {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+img {
+  @extend %image;
+}
+img.circle {
+  @extend %image;
+  border-radius: 50% 50%;
+}
+.image-container {
+  @extend %image-container;
+}
+.card-box--main .image-container{
+  transition: $transitision-simple;
+}
+
+
+.navigation {
+  width: 100%;
+  display: inline-flex;
+  height: 70px;
+  max-height: 70px;
+  justify-content: center;
+  top: 0px;
+  position: sticky;
+  background-color: $background-color;
+  box-shadow: $shadow-material;
+}
+%nav-tabs {
+  min-width: 100px;
+  height: 30px;
+  padding: 12px;
+  margin: 8px 4px;
+  font-size: $font-size-middle;
+  color: $secondary-text-color;
+  text-decoration: none;
+  text-align: center;
+  background-color: $secondary-color;
+  transition: $transitision-simple;
+}
+.main-navigation__nav-tabs {
+  @extend %nav-tabs;
+  position: relative;
+}
+.nav-tabs--right {
+  position: absolute;
+  right: 24px;
+  background-color: $primary-color;
+}
+.main-navigation__nav-tabs:hover {
+  box-shadow: $shadow-plane2;
+  transition: $transitision-simple;
+}
+.main-navigation__nav-tabs:focus,
+.nav-tabs--active {
+  background-color: $third-color;
+  box-shadow: 0px 1px 6px $primary-variant-color;
+}
+
+%select-container {
+  position: absolute;
+}
+.select-container--right {
+  @extend %select-container;
+  right: 24px;
+  top: 70px;
+  width: 120px;
+}
+.select-tabs {
+  @extend %nav-tabs;
+}

@@ -1,0 +1,33 @@
+@use "base";
+
+.card-box {
+  padding: 2% 6%;
+  text-align: center;
+  .card-box__header {
+    height: 50px;
+    margin-top: 8px;
+    margin-bottom: 0px;
+    font-size: $font-size-middle;
+  }
+  .card-box__image {
+    height: calc(100% - 50px - 50px);
+  }
+  .card-box__text {
+    font-size: $font-size-normal;
+  }
+  box-shadow: $shadow-material;
+}
+.card-box:hover {
+  box-shadow: $shadow-simple;
+}
+.card-box--main {
+  .card-box__header {
+    height: 10%;
+    font-size: $font-size-large;
+    line-height: $font-size-large + 8px;
+  }
+  .card-box__image {
+    height: 80%;
+    width: 90%;
+  }
+}

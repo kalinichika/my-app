@@ -1,10 +1,12 @@
 import React from "react";
-import "../../style/css/error-boundary.css";
 
-const ErrorBoundary = message => (
-  <div className="paper">
-    <div className="error-message">{message}</div>
-  </div>
-);
+function ErrorBoundary(props) {
+  const {message} = props;
+  return (
+    <div className="card-box card-box--error">
+      <div className="error-message">Error: {message}</div>
+    </div>
+  );
+}
 
 export default ErrorBoundary;

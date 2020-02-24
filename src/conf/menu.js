@@ -6,7 +6,7 @@ const mainMenu = [
   },
   {
     index: 2,
-    name: "About me",
+    name: "About",
     href: "/about"
   },
   {
