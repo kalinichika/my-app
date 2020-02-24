@@ -1,16 +1,21 @@
-import React, { Component } from "react";
-import Loader from "../Loader";
+import React, {Component} from "react";
+import { connect } from "react-redux";
 
-export default class Image extends Component {
+class Image extends Component {
   render() {
-    const { image, images, mouse, className } = this.props;
-    const { url, name = "" } = image ? image : images ? images[mouse] : {};
-    return url ? (
-      <div className={`${className} image-container image-fill--${mouse}`}>
-        <img src={url} alt={name} />
+    const {
+      image: { url, name = "" },
+      activeTheme,
+      className
+    } = this.props;
+    return (
+      <div className={`${className} image-container`}>
+        <img src={`/images/${activeTheme}${url}`} alt={name} />
       </div>
-    ) : (
-      <Loader />
     );
   }
 }
+const mapStateToProps = state => ({
+  activeTheme: state.main.activeColorTheme
+});
+export default connect(mapStateToProps)(Image);

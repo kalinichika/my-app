@@ -199,8 +199,7 @@ body {
   height: 100%;
   margin-left: auto;
   margin-right: auto;
-  background-color: #f1b79d;
-  opacity: 0.3;
+  background-color: rgba(241, 183, 157, 0.3);
 }
 
 img.circle, img {
@@ -215,6 +214,35 @@ img.circle {
 
 .card-box--main .image-container {
   transition: all 0.8s ease-in-out;
+}
+
+.image-center, .image-top, .image-right, .image-left {
+  width: 100%;
+  height: 100%;
+  display: none;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.visible {
+  display: block;
+}
+
+.image-left {
+  background-image: url(/images/base/about/left.jpeg) !important;
+}
+
+.image-right {
+  background-image: url(/images/base/about/right.jpeg) !important;
+}
+
+.image-top {
+  background-image: url(/images/base/about/top.jpeg) !important;
+}
+
+.image-center {
+  background-image: url(/images/base/about/center.jpeg) !important;
 }
 
 /*# sourceMappingURL=base.css.map */

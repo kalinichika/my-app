@@ -11,7 +11,7 @@ class About extends Component {
     this.props.fetchCards();
   }
   render() {
-    const { mouse, cards } = this.props.about;
+    const { cards } = this.props.about;
     return cards.loading === true ? (
       <Loader />
     ) : cards.error ? (
@@ -23,7 +23,6 @@ class About extends Component {
             {...cards.main}
             options="main"
             className="grid-item grid-item--main"
-            mouse={mouse}
           />
           {cards.hasOwnProperty("common") &&
             cards.common.map((itemCard, index) => {

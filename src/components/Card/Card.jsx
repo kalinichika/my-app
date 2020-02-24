@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import Image from "../Image";
+import Image  from "../Image";
+import ImageMouse  from "../ImageMouse";
 
 export default class Card extends Component {
   render() {
@@ -9,19 +10,19 @@ export default class Card extends Component {
       images = null,
       text,
       options,
-      className,
-      mouse = "top"
+      className
     } = this.props;
     const optionsClass = options ? `card-box--${options}` : "";
     return (
       <div className={`${className} card-box ${optionsClass}`}>
         <div className="card-box__header">{header}</div>
-        <Image
-          className="card-box__image"
-          image={image}
-          images={images}
-          mouse={mouse}
-        />
+        {image ? (
+          <Image className="card-box__image" image={image} />
+        ) : images ? (
+          <ImageMouse className="card-box__image" images={images} />
+        ) : (
+          ""
+        )}
         <div className="card-box__text">{text}</div>
       </div>
     );
