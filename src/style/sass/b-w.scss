@@ -1,15 +1,12 @@
 $primary-color: #fefefe;
-$primary-variant-color: #cfc1cf;
-$secondary-color: #a0d9b7;
-$secondary-variant-color: #f1b79d;
-$third-color: #daa1db;
-$third-variant-color: #bf74c0;
-$error-color: #f44336;
-$background-color: #fefefe;
+$primary-variant-color: #1f1f1f;
+$secondary-color: #313131;
+$secondary-variant-color: #afafaf;
+$error-color: #bb2015;
+$background-color: #e4e4e4;
 
 $primary-text-color: black;
 $secondary-text-color: white;
-$third-text-color: #5d5964;
 $shadow-simple: 0px 1px 6px rgba(0, 0, 0, 0.55);
 $shadow-material: 0 8px 22px rgba(0, 0, 0, 0.25), 0 4px 8px rgba(0, 0, 0, 0.22);
 
@@ -76,7 +73,7 @@ body {
   height: $height-nav;
   max-height: 70px;
   position: sticky;
-  background-color: $background-color;
+  background-color: $secondary-color;
   box-shadow: $shadow-material;
 }
 .main-navigation {
@@ -86,7 +83,7 @@ body {
 }
 
 %tabs {
-  height: 30px;
+  height: 35px;
   padding: 12px;
   margin: 0px 4px;
   font-size: $font-size-middle;
@@ -103,14 +100,13 @@ body {
   position: relative;
 }
 .nav-tabs:hover {
-  @include shadow-plane2($secondary-variant-color);
+  box-shadow: 0px 1px 6px $secondary-variant-color;
   transition: $transition-tabs;
 }
 .nav-tabs:focus,
 .nav-tabs--active {
   @extend %tabs;
-  background-color: $secondary-variant-color;
-  box-shadow: 0px 1px 6px $primary-variant-color;
+  box-shadow: 0px 1px 6px $secondary-variant-color;
 }
 
 /*select*/
@@ -125,16 +121,16 @@ body {
 }
 %select-tabs {
   @extend %tabs;
-  background-color: $third-color;
   font-size: $font-size-normal;
   text-overflow: clip;
 }
 .select-tabs-menu {
   @extend %select-tabs;
   margin-bottom: 6px;
+  padding-top: 13px;
 }
 .select-tabs-menu:hover {
-  @include shadow-plane2($third-variant-color);
+  box-shadow: 0px 1px 6px $secondary-variant-color;
 }
 .select-tabs {
   @extend %select-tabs;
@@ -143,15 +139,15 @@ body {
 }
 .select-tabs:hover {
   height: 24px;
-  background-color: $third-variant-color;
+  box-shadow: 0px 1px 6px $primary-variant-color;
 }
 .select-tabs--active {
   @extend %select-tabs;
   padding: 8px 4px;
   height: 24px;
   margin-left: -4px;
-  background-color: $third-variant-color;
   transition: all 0.5s ease-in-out;
+  box-shadow: 0px 1px 6px $primary-variant-color;
 }
 
 /*grid*/
@@ -264,17 +260,17 @@ img.circle {
 }
 .image-left {
   @extend %image-mouse;
-  background-image: url(/images/base/about/left.jpeg) !important;
+  background-image: url(/images/b-w/left.jpeg) !important;
 }
 .image-right {
   @extend %image-mouse;
-  background-image: url(/images/base/about/right.jpeg) !important;
+  background-image: url(/images/b-w/right.jpeg) !important;
 }
 .image-top {
   @extend %image-mouse;
-  background-image: url(/images/base/about/top.jpeg) !important;
+  background-image: url(/images/b-w/top.jpeg) !important;
 }
 .image-center {
   @extend %image-mouse;
-  background-image: url(/images/base/about/center.jpeg) !important;
+  background-image: url(/images/b-w/center.jpeg) !important;
 }

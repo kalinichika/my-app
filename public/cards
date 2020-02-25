@@ -3,19 +3,19 @@
     "header": "V Kalinina V",
     "images": {
       "left": {
-        "url": "/abouleft.jpeg",
+        "url": "/left.jpeg",
         "name": "Viktoriya Kalinina photo"
       },
       "right": {
-        "url": "/abouright.jpeg",
+        "url": "/right.jpeg",
         "name": "Viktoriya Kalinina photo"
       },
       "center": {
-        "url": "/aboucenter.jpeg",
+        "url": "/center.jpeg",
         "name": "Viktoriya Kalinina photo"
       },
       "top": {
-        "url": "/aboutop.jpeg",
+        "url": "/top.jpeg",
         "name": "Viktoriya Kalinina photo"
       }
     },
@@ -26,7 +26,7 @@
     {
       "header": "что люблю",
       "image": {
-        "url": "/about/common1.jpeg"
+        "url": "/common1.jpeg"
       },
       "text": "....",
       "options": "common"
@@ -34,7 +34,7 @@
     {
       "header": "кого люблю",
       "image": {
-        "url": "/about/common2.jpeg"
+        "url": "/common2.jpeg"
       },
       "text": "....",
       "options": "common"
@@ -42,7 +42,7 @@
     {
       "header": "к чему стремлюсь",
       "image": {
-        "url": "/about/common3.jpeg"
+        "url": "/common3.jpeg"
       },
       "text": "....",
       "options": "common"
@@ -50,7 +50,7 @@
     {
       "header": "чем занимаюсь",
       "image": {
-        "url": "/about/common4.jpeg"
+        "url": "/common4.jpeg"
       },
       "text": "....",
       "options": "common"

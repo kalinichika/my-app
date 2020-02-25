@@ -1,29 +1,35 @@
-$primary-color: #b742df;
-$primary-variant-color: #5921db;
-$secondary-color: #04d6fc;
-$secondary-variant-color: #3f3a4b;
-$third-color: #ff7bf8;
-
-$background-color: #61c0f781;
+$primary-color: #fefefe;
+$primary-variant-color: #3f3f3f;
+$secondary-color: #e2a453;
+$secondary-variant-color: #6cbdd1;
 $error-color: #f44336;
+$background-color: #c9c9c9;
 
 $primary-text-color: black;
 $secondary-text-color: white;
-$third-text-color: #8e8cba;
-$shadow-simple: 0px 1px 6px $secondary-variant-color;
+$shadow-simple: 0px 1px 6px rgba(0, 0, 0, 0.55);
 $shadow-material: 0 8px 22px rgba(0, 0, 0, 0.25), 0 4px 8px rgba(0, 0, 0, 0.22);
 
-$shadow-plane1: 0 0 0 2px white, 0 0 0 4px $secondary-color;
-$shadow-plane2: 200px 0 0 0 $third-color inset;
-$shadow-plane3: 0 0 0 2px $secondary-color inset, 0 0 0 4px white inset;
-
+@mixin shadow-plane1($color) {
+  box-shadow: 0 0 0 2px white, 0 0 0 4px $color;
+}
+@mixin shadow-plane2($color) {
+  box-shadow: 200px 0 0 0 $color inset;
+}
+@mixin shadow-plane3($color) {
+  box-shadow: 0 0 0 2px $color inset, 0 0 0 4px white inset;
+}
 $font-stack: "Cinzel", "Cormorant", serif;
+$font-size-smallest: 14px;
 $font-size-small: 16px;
 $font-size-normal: 22px;
 $font-size-middle: 28px;
 $font-size-large: 42px;
 
-$transitision-simple: all 0.6 ease-in-out;
+$transition-tabs: all 0.8s ease-in-out;
+$height-nav: 60px;
+$hidden: 0;
+$visible: 1;
 
 body {
   font-family: $font-stack;
@@ -32,6 +38,10 @@ body {
   width: 100vw;
   height: 100vh;
   margin: 0px;
+  background-image: url(/images/color/back.jpeg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
 }
 #root,
 .App {
@@ -48,43 +58,105 @@ body {
   width: 100%;
   height: 100%;
 }
+.page-about {
+  width: 100%;
+  height: 100%;
+}
 .hidden {
   opacity: 0;
 }
+.error-message {
+  color: red;
+}
 
-.card-box {
-  background-color: $primary-variant-color;
-  padding: 2% 6%;
-  text-align: center;
-  .card-box__header {
-    height: 50px;
-    margin-top: 8px;
-    margin-bottom: 0px;
-    font-size: $font-size-middle;
-  }
-  .card-box__image {
-    height: calc(100% - 50px - 50px);
-  }
-  .card-box__text {
-    font-size: $font-size-normal;
-  }
+/*navigation*/
+
+.navigation {
+  top: 0px;
+  width: 100%;
+  height: $height-nav;
+  max-height: 70px;
+  position: sticky;
+  background-color: rgba($background-color, 0.3);
   box-shadow: $shadow-material;
 }
-.card-box:hover {
-  box-shadow: $shadow-simple;
-}
-.card-box--main {
-  .card-box__header {
-    height: 10%;
-    font-size: $font-size-large;
-    line-height: $font-size-large + 8px;
-  }
-  .card-box__image {
-    height: 80%;
-    width: 90%;
-  }
+.main-navigation {
+  width: 100%;
+  display: inline-flex;
+  justify-content: center;
 }
 
+%tabs {
+  height: 30px;
+  padding: 12px;
+  margin: 0px 4px;
+  font-size: $font-size-middle;
+  color: $secondary-text-color;
+  text-decoration: none;
+  text-align: center;
+  background-color: $secondary-color;
+  transition: $transition-tabs;
+  cursor: pointer;
+  text-overflow: clip;
+}
+.nav-tabs {
+  @extend %tabs;
+  position: relative;
+}
+.nav-tabs:hover {
+  @include shadow-plane2($secondary-variant-color);
+  transition: $transition-tabs;
+}
+.nav-tabs:focus,
+.nav-tabs--active {
+  @extend %tabs;
+  background-color: $secondary-variant-color;
+  box-shadow: 0px 1px 6px $primary-variant-color;
+}
+
+/*select*/
+
+.select-container {
+  width: 10%;
+  max-width: 100px;
+  position: absolute;
+  right: 1%;
+  top: 0px;
+  overflow: hidden;
+}
+%select-tabs {
+  @extend %tabs;
+  background-color: $secondary-color;
+  font-size: $font-size-normal;
+  text-overflow: clip;
+}
+.select-tabs-menu {
+  @extend %select-tabs;
+  margin-bottom: 6px;
+  padding-top: 13px;
+}
+.select-tabs-menu:hover {
+  @include shadow-plane2($secondary-variant-color);
+}
+.select-tabs {
+  @extend %select-tabs;
+  height: 24px;
+  padding: 8px 4px;
+}
+.select-tabs:hover {
+  height: 24px;
+  background-color: $secondary-variant-color;
+}
+.select-tabs--active {
+  @extend %select-tabs;
+  padding: 8px 4px;
+  height: 24px;
+  margin-left: -4px;
+  background-color: $secondary-variant-color;
+  transition: all 0.5s ease-in-out;
+}
+
+/*grid*/
 
 .grid-container {
   width: 75%;
@@ -119,15 +191,49 @@ body {
   }
 }
 
+/*card-box*/
 
+.card-box {
+  background-color: rgba($secondary-variant-color, 0.8);
+  padding: 1% 5%;
+  text-align: center;
+  .card-box__header {
+    height: 50px;
+    margin-top: 8px;
+    margin-bottom: 0px;
+    font-size: $font-size-middle;
+  }
+  .card-box__image {
+    height: calc(100% - 50px - 50px);
+  }
+  .card-box__text {
+    font-size: $font-size-normal;
+  }
+  box-shadow: $shadow-material;
+}
+.card-box:hover {
+  box-shadow: $shadow-simple;
+}
+.card-box--main {
+  .card-box__header {
+    height: 10%;
+    font-size: $font-size-large;
+    line-height: $font-size-large + 8px;
+  }
+  .card-box__image {
+    height: 80%;
+    width: 90%;
+  }
+}
 
+/*image*/
 
 %image-container {
   width: 100%;
   height: 100%;
   margin-left: auto;
   margin-right: auto;
-  background-color: $third-color;
+  background-color: rgba($secondary-variant-color, 0.3);
 }
 %image {
   object-fit: cover;
@@ -144,62 +250,33 @@ img.circle {
 .image-container {
   @extend %image-container;
 }
-.card-box--main .image-container{
-  transition: $transitision-simple;
+.card-box--main .image-container {
+  transition: $transition-tabs;
 }
-
-
-.navigation {
+%image-mouse {
   width: 100%;
-  display: inline-flex;
-  height: 70px;
-  max-height: 70px;
-  justify-content: center;
-  top: 0px;
-  position: sticky;
-  background-color: $background-color;
-  box-shadow: $shadow-material;
+  height: 100%;
+  display: none;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
 }
-%nav-tabs {
-  min-width: 100px;
-  height: 30px;
-  padding: 12px;
-  margin: 8px 4px;
-  font-size: $font-size-middle;
-  color: $secondary-text-color;
-  text-decoration: none;
-  text-align: center;
-  background-color: $secondary-color;
-  transition: $transitision-simple;
+.visible {
+  display: block;
 }
-.main-navigation__nav-tabs {
-  @extend %nav-tabs;
-  position: relative;
+.image-left {
+  @extend %image-mouse;
+  background-image: url(/images/color/left.jpeg) !important;
 }
-.nav-tabs--right {
-  position: absolute;
-  right: 24px;
-  background-color: $primary-color;
+.image-right {
+  @extend %image-mouse;
+  background-image: url(/images/color/right.jpeg) !important;
 }
-.main-navigation__nav-tabs:hover {
-  box-shadow: $shadow-plane2;
-  transition: $transitision-simple;
+.image-top {
+  @extend %image-mouse;
+  background-image: url(/images/color/top.jpeg) !important;
 }
-.main-navigation__nav-tabs:focus,
-.nav-tabs--active {
-  background-color: $third-color;
-  box-shadow: 0px 1px 6px $primary-variant-color;
-}
-
-%select-container {
-  position: absolute;
-}
-.select-container--right {
-  @extend %select-container;
-  right: 24px;
-  top: 70px;
-  width: 120px;
-}
-.select-tabs {
-  @extend %nav-tabs;
+.image-center {
+  @extend %image-mouse;
+  background-image: url(/images/color/center.jpeg) !important;
 }

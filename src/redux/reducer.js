@@ -8,7 +8,7 @@ import {
 import { combineReducers } from "redux";
 
 const initialMainState = {
-  activeColorTheme: "base",
+  activeColorTheme: "b-w",
   loading: false,
   error: null
 };

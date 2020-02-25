@@ -9,7 +9,7 @@ import Select from "../../components/Select";
 class MainNavigation extends Component {
   changeStyle = (nameTheme) => {
     this.props.changeColorTheme(nameTheme);
-    //document.getElementsByTagName("link")[0].href = `/css/${nameTheme}.css`;
+    document.getElementsByTagName("link")[0].href = `/css/${nameTheme}.css`;
   };
   render() {
     const {
@@ -29,7 +29,7 @@ class MainNavigation extends Component {
               );
             })}
           </div>
-          {pathname === "/main" ? (
+          {pathname === "/main" || "/about" ? (
             <Select
               name="Styles"
               tabs={colorThemes}

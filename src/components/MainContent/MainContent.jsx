@@ -11,8 +11,6 @@ class MainContent extends Component {
       <Switch>
         <Route path="/main" component={Main} />
         <Route path="/about" component={About} />
-        <Route path="/photo" component={Photo} />
-        <Route path="/video" component={Video} />
         <Redirect from="*" to="/main" />
       </Switch>
     </div>

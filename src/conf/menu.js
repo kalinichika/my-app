@@ -8,16 +8,6 @@ const mainMenu = [
     index: 2,
     name: "About",
     href: "/about"
-  },
-  {
-    index: 3,
-    name: "Photo",
-    href: "/photo"
-  },
-  {
-    index: 4,
-    name: "Video",
-    href: "/video"
   }
 ];
 
